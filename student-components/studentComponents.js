@@ -73,15 +73,50 @@ const students = [
     }
 ]
 
-const createStudentComponent = (student, cls) => {
+// Write functions that build the sub-components of the larger student component.
+//     h1
+//     section
+//     aside
+// Invoke those functions inside the createStudentComponent function to build the parent <div>.
+
+const createH1 = (student, cls) => {
+    return `<h1 class="xx-large ${cls}">${student}</h1>`
+}
+
+const createSection = (student) => {
     return `
-    <div class="student">
-        <h1 class="xx-large ${cls}">${student.name}</h1>
-        <section class="bordered dashed section--padded">${student.subject}</section>
-        <aside class="pushRight">${student.info}</aside>
-    </div>
+    <section class="bordered dashed section--padded">
+        ${student}
+    </section>
     `
 }
+
+const createAside = (student) => {
+    return `
+    <aside class="pushRight">
+        ${student}
+    </aside>
+    `
+}
+
+const createStudentComponent = (student, cls) => `
+    <div id="student">
+        ${createH1(student.name, cls)}
+        ${createSection(student.subject)}
+        ${createAside(student.info)}
+    </div>
+`
+
+// const createStudentComponent = (student, cls) => {
+//     return `
+//     <div class="student">
+//         <h1 class="xx-large ${cls}">${student.name}</h1>
+//         <section class="bordered dashed section--padded">${student.subject}</section>
+//         <aside class="pushRight">${student.info}</aside>
+//     </div>
+//     `
+// }
+
 // Then store a reference to an existing HTML element
 const studentContainer = document.querySelector("#container")
 
