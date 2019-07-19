@@ -1,3 +1,5 @@
+// Challenge 1: Composition of Smaller Components
+
 const students = [
     {
         name: "Chris Miller",
@@ -106,16 +108,6 @@ const createStudentComponent = (student, cls) => `
         ${createAside(student.info)}
     </div>
 `
-
-// const createStudentComponent = (student, cls) => {
-//     return `
-//     <div class="student">
-//         <h1 class="xx-large ${cls}">${student.name}</h1>
-//         <section class="bordered dashed section--padded">${student.subject}</section>
-//         <aside class="pushRight">${student.info}</aside>
-//     </div>
-//     `
-// }
 
 // Then store a reference to an existing HTML element
 const studentContainer = document.querySelector("#container")
